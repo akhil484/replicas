@@ -9,54 +9,46 @@ body{
 			display: flex;
 			flex-direction: column;
 		}
-		.first-row{
+		.navbar{
 			display: flex;
-			flex-wrap: wrap;
-			flex-direction: row;
 			justify-content: space-between;
-			margin-top: 1.5em;
-			margin-left: 2em;
-			margin-bottom: 1em;
-			/*flex: 1 1 33.4%;*/
+			align-items: center;
+			margin-left: 1rem;
+			margin-bottom: 1rem;
 		}
 		
-		.sec-head{
+		.navbar-links ul{
+			margin: 0;
+			padding: 0;
 			display: flex;
-			flex-direction: row;
-			justify-content: center;
-			margin-left: 2em;
-			margin-top: 1em;
-			
+		}
+
+		.navbar-links li{
+			list-style: none;
+		}
+		.navbar-links li a{
+			text-decoration: none;
+			color: black;
+			padding: 0.7rem;
+			display: block;
 		}
 		.icons{
 			display: flex;
 			flex-direction: row;
 			justify-content: center;
-			margin-right: 3em;
-			margin-top: 2.2em;
-			margin-left: 2em;
+			margin-right: 2rem;
+			margin-left: 1rem;
 			
 		}
-		/*@media screen and (max-width: 992px) {
-  			.icons, .sec-head, .first-head {
-    			flex: 1;
-  			}
-  			.icons{
-  				justify-content: space-evenly;
-  			*/}	
+		
+		.first-head{
+			margin-left: .5rem;
 		}
-
-		/*@media screen and (max-width: 600px) {
-  			.first-row {
-    			flex-direction: column;
-  			}
-		}*/
 		.two-col{
-			margin-left: 2em;
-			font-size: 1.5vw;
+			font-size: 1.1rem;
 		}
 		.fa{
-			font-size: 1.3vw;
+			font-size: 1.1rem;
   			width: 100%;
 		}
 		.fa-instagram{
@@ -84,20 +76,20 @@ body{
 		.black-box{
 			display: flex;
 			background-color: rgb(32,32,32);
-			width: 15vw;
-			height: 4vw;
+			width: 15rem;
+			height: 3rem;
 			margin-top: 2em;
 			justify-content: center;
    			align-items: center;
 		}
 		#white-col{
 			color: white;
-			font-size: 1.5vw;
+			font-size: 1.2rem;
 		}
 		#yellow-col{
 			color: #ffb100;
 			width: 100%;
-			font-size: 2.6vw;
+			font-size: 2.3rem;
 		}
 		#imgbor{
 			border-radius: 7%;
@@ -110,16 +102,10 @@ body{
 			margin-left: 2em;
 			
 		}
-		@media only screen and (max-width: 350px) {
-  			.first-row,.second-row{
-    			flex-direction: column;
-    			justify-content: flex-start;
-  				}
-  				#imgid{
-  					margin-bottom: 1em;
-  				}
-			}
-
+		nav ul li{
+			display: inline-block;
+			padding-right: .8rem;
+		}
 		
 		.col2{
 			display: flex;
@@ -127,15 +113,76 @@ body{
 			width: 100%;
 		}
 		.size-cl{
-			font-size: 1vw;
+			font-size: 0.8rem;
 		}
 		.cart{
 			margin-right: 2.5em;
 		}
 		.longtext{
-			font-size: 1.2vw;
+			font-size: 1rem;
 			width: 100%;
 		}
 		.yl{
 			color: #ffb100;
+		}
+		.toggle-button{
+			position: relative;
+			display: none;
+			flex-direction: column;
+			justify-content: space-between;
+			width: 15px;
+			height: 10px;
+		}
+		.toggle-button .bar{
+			height: 3px;
+			width: 100%;
+			background-color: black;
+			border-radius: 5px;
+		}
+		@media (max-width: 640px) {
+  			.second-row{
+    			flex-direction: column;
+    			justify-content: flex-start;
+  				}
+  				#imgid{
+  					margin-bottom: 1em;
+  				}
+  			.toggle-button{
+  				display: flex;
+  			}
+  			.navbar-links{
+  				display: none;
+  				width: 100%;
+  			}
+  			
+  			.navbar-links ul{
+  				width: 100%;
+  				flex-direction: column;
+  			}
+  			.navbar-links li{
+  				text-align: center;
+  			}
+  			.navbar-links li a{
+  				padding: .5rem 1rem;
+  			}
+  			.navbar-links.active{
+  				display: flex;
+  			}
+  			.icons{
+  				margin-left: .5rem;
+  			}
+		}
+		
+		@media (max-width: 312px){
+			.navbar{
+  				flex-direction: column;
+  				align-items: flex-start;
+  			}
+  			.icons{
+  				margin-top: 1rem;
+  				margin-left: 0;
+  			}
+  			.first-head{
+  				margin: 0;
+  			}
 		}
