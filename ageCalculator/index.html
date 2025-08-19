@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main">
+        <section class="first">
+            <div class="labelboxes">
+                <label><span id="date_label">Date</span> </label>
+                <input type="text" class="textbox" id="date">
+                <div class="red" id="date_error">Must be a valid day</div>
+            </div>
+            <div class="labelboxes">
+                <label><span id="month_label">Month</span> </label>
+                <input type="text" class="textbox" id="month">
+                <div class="red" id="month_error">Must be a valid month</div>
+            </div>
+            <div class="labelboxes">
+                <label><span id="year_label">Year</span> </label>
+                <input type="text" class="textbox" id="year">
+                <div class="red" id="year_error">Must be in the past</div>
+            </div>
+            
+        </section>
+        <section class="second">
+            <div class="dotted-line"></div>
+            <div class="purple_btn" onclick="calculateage()">
+                <img class="arrow_img" src="arrow.png">
+            </div>
+        </section>
+        <section class="third">
+            <div>
+                <div class="boldage">
+                    <span class="purple" id="ageyear">--</span> years
+                </div>
+                <div class="boldage">
+                    <span class="purple" id="agemonth">--</span> months
+                </div>
+                <div class="boldage">
+                    <span class="purple" id="ageday">--</span> days
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        const today = new Date();
+
+        const currentMonth = today.getMonth() + 1; 
+
+        const currentDate = today.getDate();
+        const currentYear = today.getFullYear();
+
+        function isdatecorrect(date, month, year)
+        {
+            let iscorrect = true;
+        
+            if(month<=0 || month>12)
+            {
+                iscorrect = false;
+                document.getElementById("month_label").classList.add("red");
+                document.getElementById("month_error").style.display = "block";
+                document.getElementById("month").style.borderColor = "red";
+            }
+            if(year<0 || year>currentYear)
+            {
+                iscorrect = false;
+                document.getElementById("year_label").classList.add("red");
+                document.getElementById("year_error").style.display = "block";
+                document.getElementById("year").style.borderColor = "red";
+
+            }
+            if(year == currentYear)
+            {
+                if(month-1>currentMonth || (month-1 == currentMonth && date > currentDate))
+                {
+                    iscorrect = false;
+                    document.getElementById("year_label").classList.add("red");
+                    document.getElementById("year_error").style.display = "block";
+                    document.getElementById("year").style.borderColor = "red";
+                }
+                
+
+            }
+
+            if(date < 1 || date > 31)
+            {
+                iscorrect = false;
+                document.getElementById("date_label").classList.add("red");
+                document.getElementById("date_error").style.display = "block";
+                document.getElementById("date").style.borderColor = "red";
+            }
+            
+            if((month==4||month==6||month==9||month==11) && date > 30)
+            {
+                
+                iscorrect = false;
+                document.getElementById("date_label").classList.add("red");
+                document.getElementById("date_error").style.display = "block";
+                document.getElementById("date").style.borderColor = "red";
+            }
+            else if(month == 2)
+            {
+                if((year%4==0 &&date>29)||(year%4!=0&& date>28))
+                {
+                    document.getElementById("date_label").classList.add("red");
+                    document.getElementById("date_error").style.display = "block";
+                    document.getElementById("date").style.borderColor = "red";
+                    iscorrect = false;
+                }
+            
+            }
+
+            return iscorrect;
+        }
+
+        function getage(prev_date,prev_month,prev_year)
+        {
+            const dob = new Date(prev_year, prev_month, prev_date);
+            const today = new Date();
+
+            let years = today.getFullYear() - dob.getFullYear();
+            let months = today.getMonth() - dob.getMonth();
+            let days = today.getDate() - dob.getDate();
+            
+
+            
+            if (days < 0) {
+                months--;
+                const prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+                days += prevMonth.getDate();
+            }
+
+            
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+            document.getElementById("ageday").textContent = days;
+            document.getElementById("agemonth").textContent = months;
+            document.getElementById("ageyear").textContent = years;
+        }
+
+        function calculateage()
+        {
+            var date = document.getElementById('date').value;
+            var month = document.getElementById('month').value;
+            var year = document.getElementById('year').value;
+
+            document.getElementById("date_label").classList.remove("red");
+            document.getElementById("year_label").classList.remove("red");
+            document.getElementById("month_label").classList.remove("red");
+
+            document.getElementById("date_error").style.display = "None";
+            document.getElementById("year_error").style.display = "None";
+            document.getElementById("month_error").style.display = "None";
+
+            document.getElementById("date").style.borderColor = "#00000030";
+            document.getElementById("month").style.borderColor = "#00000030";
+            document.getElementById("year").style.borderColor = "#00000030";
+            
+            if(isdatecorrect(date, month, year))
+            {
+                getage(date,month-1,year)
+            }
+        }
+    </script>
+</body>
+</html>
