@@ -84,3 +84,15 @@ label{
 .arrow_img{
   height: 7vh;
 }
+
+@media (max-width: 550px) {
+  .dotted-line {
+  width: 100%; 
+  }
+}
+
+@media (max-width: 400px) {
+  .boldage {
+    font-size: 5.4vh;
+}
+}
