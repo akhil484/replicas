@@ -81,7 +81,7 @@ label{
 }
 .arrow_img{
    height: 7vh;
-    top: -25px;
+    top: -34px;
     left: 90%;
     position: relative;
 }
@@ -103,5 +103,12 @@ label{
     width: 100%;
     max-width: 100%;
     min-width: 100%;
+}
+
+.arrow_img {
+    height: 7vh;
+    top: -28px;
+    left: 90%;
+    position: relative;
 }
 }
