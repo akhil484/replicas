@@ -85,19 +85,19 @@ label{
   height: 7vh;
 }
 
-@media (max-width: 550px) {
+@media screen and (max-width: 550px) {
   .dotted-line {
   width: 100%; 
   }
 }
 
-@media (max-width: 400px) {
+@media screen and (max-width: 400px) {
   .boldage {
     font-size: 5.4vh;
 }
 }
 
-@media (max-width: 750px) {
+@media screen and (max-width: 750px){
   .main {
     width: 100%;
     max-width: 100%;
