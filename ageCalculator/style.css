@@ -61,10 +61,7 @@ body{
 .purple_btn {
     position: relative;
     cursor: pointer;
-    top: -4vh;
-    left: 90%;
     transform: translateX(-50%);
-
 }
 
 .purple{
@@ -83,7 +80,10 @@ label{
     display: None;
 }
 .arrow_img{
-  height: 7vh;
+   height: 7vh;
+    top: -25px;
+    left: 90%;
+    position: relative;
 }
 
 @media screen and (max-width: 550px) {
