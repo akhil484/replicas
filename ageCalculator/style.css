@@ -3,6 +3,7 @@ body{
     justify-content: center;
     align-items: center;
     background-color: #eff8ff;
+    overflow-x: hidden;
 }
 
 .main{
