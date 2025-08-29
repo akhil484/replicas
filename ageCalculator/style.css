@@ -80,10 +80,10 @@ label{
     display: None;
 }
 .arrow_img{
-   height: 7vh;
-    top: -34px;
-    left: 90%;
-    position: relative;
+  height: 50px;
+top: -25px;
+left: 90%;
+position: absolute;
 }
 
 @media screen and (max-width: 550px) {
